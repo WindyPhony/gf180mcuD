@@ -37,7 +37,7 @@ CLOCK_PERIOD: 25 # 25ns = 40MHz
 ```
 
 The `DESIGN_NAME` is the top-level module of your design, in this case `counter`. `VERILOG_FILES` specifies all source files for your design. This can be a list of files, or even a wildcard such as `dir::path/to/my/files/*.sv`.
-`CLOCK_PORT` is the clock port of your design and `CLOCK_PERIOD` specifies at which clock period the design should operate at. We use 25ns (40MHz) because GF180 is a 180nm process, which is slower than IHP SG13G2 (130nm). `STD_CELL_LIBRARY` selects the 7-track 5V standard cell library of GF180MCU.
+`CLOCK_PORT` is the clock port of your design and `CLOCK_PERIOD` specifies at which clock period the design should operate at. LibreLane will use this information to run CTS (Clock Tree Synthesis) and set up the default SDC (Synopsys Design Constraint) file.
 
 The RTL design `counter32.sv` is a 32-bit synchronous counter:
 
