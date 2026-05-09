@@ -33,11 +33,7 @@ LibreLane supports a variety of configuration file formats such as `.tcl`, `.jso
 DESIGN_NAME: counter
 VERILOG_FILES: dir::counter32.sv
 CLOCK_PORT: clk_i
-CLOCK_PERIOD: 25 # 25ns = 40MHz (GF180 is slower than IHP SG13G2)
-STD_CELL_LIBRARY: gf180mcu_fd_sc_mcu7t5v0
-DIE_AREA:  [0, 0, 80, 80]
-CORE_AREA: [5, 5, 75, 75]
-FP_CORE_UTIL: 40
+CLOCK_PERIOD: 25 # 25ns = 40MHz
 ```
 
 The `DESIGN_NAME` is the top-level module of your design, in this case `counter`. `VERILOG_FILES` specifies all source files for your design. This can be a list of files, or even a wildcard such as `dir::path/to/my/files/*.sv`.
