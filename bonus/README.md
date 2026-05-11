@@ -41,5 +41,5 @@ librelane config.yaml --manual-pdk
 
 The result should be something like this:
 
-<img/bonus_openroad.png>
+<img/bonus_openroad_1.png>
 
