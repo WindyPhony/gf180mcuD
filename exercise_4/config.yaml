@@ -51,13 +51,13 @@ MACROS:
         location: [30, 30]
         orientation: N
       counter_1:
-        location: [30, 270]
+        location: [30, 350]
         orientation: N
       counter_2:
-        location: [270, 30]
+        location: [350, 30]
         orientation: N
       counter_3:
-        location: [270, 270]
+        location: [350, 350]
         orientation: N
 
 PDN_MACRO_CONNECTIONS:
