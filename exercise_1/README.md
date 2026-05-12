@@ -5,12 +5,12 @@
 We start the first exercise by implementing a 32-bit counter. Make sure you have the `librelane` conda environment activated, and run the following command in this folder:
 
 ```
-librelane --pdk gf180mcuD config_gf180.yaml
+librelane --pdk gf180mcuD config.yaml
 ```
 
 By now, a lot of text should be scrolling by. While we wait, let me explain a few things:
 
-This command invokes LibreLane with the gf180mcuD PDK and the `config_gf180.yaml` configuration file.
+This command invokes LibreLane with the gf180mcuD PDK and the `config.yaml` configuration file.
 
 > [!TIP]
 > PDK stands for Process Design Kit and contains everything that we need for chip design.
@@ -27,7 +27,7 @@ By default LibreLane will manage the PDK for you. That includes selecting the ri
 
 If you want to select a specific version of a PDK, you can tell LibreLane to do so with `--manual-pdk`. LibreLane will then use the `PDK_ROOT` and `PDK` environment variables, or the `--pdk-root` and `--pdk` arguments to find the PDK.
 
-LibreLane supports a variety of configuration file formats such as `.tcl`, `.json` and `.yaml`. In this exercise you can find the `config_gf180.yaml` configuration file with a minimal configuration:
+LibreLane supports a variety of configuration file formats such as `.tcl`, `.json` and `.yaml`. In this exercise you can find the `config.yaml` configuration file with a minimal configuration:
 
 ```yaml
 DESIGN_NAME: counter
@@ -92,7 +92,7 @@ It would be quite boring if that was all. Luckily we can visualize the design us
 To open OpenROAD GUI, simply run the same command again with some additional arguments:
 
 ```
-librelane --pdk gf180mcuD config_gf180.yaml --last-run --flow OpenInOpenROAD
+librelane --pdk gf180mcuD config.yaml --last-run --flow OpenInOpenROAD
 ```
 
 `--last-run` tells LibreLane to re-use the last run folder with the latest state (we will talk about the run folder shortly). And `--flow OpenInOpenROAD` tells LibreLane to use the `OpenInOpenROAD` flow instead of the `Classic` flow for implementing designs.
@@ -128,7 +128,7 @@ While OpenROAD GUI opens the ODB (OpenDB) of your design, KLayout will load the 
 To open your design in KLayout run:
 
 ```
-librelane --pdk gf180mcuD config_gf180.yaml --last-run --flow OpenInKLayout
+librelane --pdk gf180mcuD config.yaml --last-run --flow OpenInKLayout
 ```
 
 This should open the following window:

@@ -23,7 +23,7 @@ You will get a lonely lump of standard cells somewhere in the center of your die
 
 How sad. Let's try that!
 
-Edit `config_gf180.yaml` with the following entries:
+Edit `config.yaml` with the following entries:
 
 ```yaml
 FP_SIZING: absolute
@@ -34,7 +34,7 @@ PL_TARGET_DENSITY_PCT: 80
 And now, run the full flow.
 
 ```
-librelane --pdk gf180mcuD config_gf180.yaml
+librelane --pdk gf180mcuD config.yaml
 ```
 
 And here's our lonely lump of standard cells:

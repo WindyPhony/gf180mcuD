@@ -13,13 +13,13 @@ The `Classic` flow is a so-called `SequentialFlow` that consists of a [number of
 Let's say we only want to run up to `Yosys.Synthesis` as we're still debugging some issues there.
 
 ```
-librelane --pdk gf180mcuD config_gf180.yaml --to Yosys.Synthesis
+librelane --pdk gf180mcuD config.yaml --to Yosys.Synthesis
 ```
 
 Or even shorter:
 
 ```
-librelane --pdk gf180mcuD config_gf180.yaml -T Yosys.Synthesis
+librelane --pdk gf180mcuD config.yaml -T Yosys.Synthesis
 ```
 
 LibreLane runs and should report a number of skipped steps after `Yosys.Synthesis`.
@@ -30,7 +30,7 @@ I think you can do that yourself now, right?
 Great! Now open OpenROAD GUI:
 
 ```
-librelane --pdk gf180mcuD config_gf180.yaml --last-run --flow OpenInOpenROAD
+librelane --pdk gf180mcuD config.yaml --last-run --flow OpenInOpenROAD
 ```
 
 It should look something like this:
@@ -46,7 +46,7 @@ So, let's see how we can run from `OpenROAD.GlobalPlacement` to `OpenROAD.Detail
 To do this we need to start the flow `from` a step.
 
 ```
-librelane --pdk gf180mcuD config_gf180.yaml --from OpenROAD.GlobalPlacement
+librelane --pdk gf180mcuD config.yaml --from OpenROAD.GlobalPlacement
 ```
 
 Is this it? Not yet. First, we need to tell LibreLane to use the last run directory and secondly, we need to specify the input state: after all there could be several steps of `OpenROAD.GlobalPlacement` in the run directory.
@@ -54,13 +54,13 @@ Is this it? Not yet. First, we need to tell LibreLane to use the last run direct
 So, let's do this:
 
 ```
-librelane --pdk gf180mcuD config_gf180.yaml --last-run --from OpenROAD.GlobalPlacement --with-initial-state runs/<time_stamp>/28-openroad-globalplacement/state_in.json
+librelane --pdk gf180mcuD config.yaml --last-run --from OpenROAD.GlobalPlacement --with-initial-state runs/<time_stamp>/28-openroad-globalplacement/state_in.json
 ```
 
 Or in short:
 
 ```
-librelane --pdk gf180mcuD config_gf180.yaml --last-run -F OpenROAD.GlobalPlacement -i runs/<time_stamp>/28-openroad-globalplacement/state_in.json
+librelane --pdk gf180mcuD config.yaml --last-run -F OpenROAD.GlobalPlacement -i runs/<time_stamp>/28-openroad-globalplacement/state_in.json
 ```
 
 > [!TIP]
@@ -71,7 +71,7 @@ Now, there should be a bunch of skipped steps at the start of the flow. However 
 Thus, let's add the `to` argument as well:
 
 ```
-librelane --pdk gf180mcuD config_gf180.yaml --last-run --from OpenROAD.GlobalPlacement --with-initial-state runs/<time_stamp>/28-openroad-globalplacement/state_in.json --to OpenROAD.DetailedPlacement
+librelane --pdk gf180mcuD config.yaml --last-run --from OpenROAD.GlobalPlacement --with-initial-state runs/<time_stamp>/28-openroad-globalplacement/state_in.json --to OpenROAD.DetailedPlacement
 ```
 
 ## 3.3 - Skip a Step
@@ -79,13 +79,13 @@ librelane --pdk gf180mcuD config_gf180.yaml --last-run --from OpenROAD.GlobalPla
 If you run the full flow, you will notice that `KLayout.DRC` takes up the majority of time. But who needs DRC anyway? So let's just disable it ;)
 
 ```
-librelane --pdk gf180mcuD config_gf180.yaml --skip KLayout.DRC
+librelane --pdk gf180mcuD config.yaml --skip KLayout.DRC
 ```
 
 Or in short:
 
 ```
-librelane --pdk gf180mcuD config_gf180.yaml -S KLayout.DRC
+librelane --pdk gf180mcuD config.yaml -S KLayout.DRC
 ```
 
 Now you can enjoy the finished design, without knowing whether it passes DRC.

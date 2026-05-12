@@ -47,7 +47,7 @@ FP_PDN_CORE_RING: true
 Finally, implement the design:
 
 ```
-librelane --pdk gf180mcuD config_gf180.yaml
+librelane --pdk gf180mcuD config.yaml
 ```
 
 Great! Once that is done copy the `final/` directory with all its contents from the last run directory (`runs/<timestamp>/final/`) into the `counter_8bit` folder (`counter_8bit/final/`).
@@ -122,7 +122,7 @@ Other noteworthy variables are `FP_PDN_VWIDTH`/`FP_PDN_HWIDTH` and `FP_PDN_VSPAC
 Now, let's run the flow at the top-level (in `exercise_4/`):
 
 ```
-librelane --pdk gf180mcuD config_gf180.yaml
+librelane --pdk gf180mcuD config.yaml
 ```
 
 LibreLane should complete successfully and you should be presented with one of the two results:
